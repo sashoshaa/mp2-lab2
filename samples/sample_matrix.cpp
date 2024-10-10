@@ -8,27 +8,31 @@
 #include <iostream>
 #include "utmatrix.h"
 //---------------------------------------------------------------------------
+
 void main()
 {
     setlocale(LC_ALL, "Russian");
-    //TMatrix<int> q(5), w(5), e(5);
-    //int i, j;
-    //setlocale(LC_ALL, "Russian");
-    //cout << "Тестирование программ поддержки представления треугольных матриц"
-     // << endl;
-    //for (i = 0; i < 5; i++)
-      //for (j = 0; j < 5; j++)
-      //{
-        //q[i][j] =  i + j;
-        //w[i][j] = (i + j) * 100;
-      //}
-    //e = q + w;
-    //cout << "Matrix a = " << endl << q << endl;
-    //cout << "Matrix b = " << endl << w << endl;
-    //cout << "Matrix c = a + b" << endl << e << endl;
+    TMatrix<int> q(3), w(3), e(3);
+    int i, j;
+    cout << "Тестирование программ поддержки представления матриц и операций над ними" 
+        << endl;
+    //cin >> q;
+    //TMatrix<int> w(q);
+    //cin >> w;
+    for (i = 0; i < 3; i++)
+        for (j = i; j < 3; j++)
+        {
+            q[i][j] = i;
+            w[i][j] = i + 2;
+        }
+    e = q - w;
+    cout << (q != w) << endl;
+    cout << "Matrix q = " << endl << q << endl;
+    cout << "Matrix w = " << endl << w << endl;
+    cout << "Matrix e = q + w" << endl << e << endl;
     TVector<int> a(5), b(5), c(5);
     int s;
-    cout << "Тестирование программ поддержки представления векторов и операций над ними"
+    cout << "Тестирование программ поддержки представления векторов и операций над ними" 
         << endl;
     for (int i = 0; i < 5; i++) {
         a[i] = i + 1;
@@ -36,12 +40,12 @@ void main()
     }
     cout << "Vector a = " << endl << a << endl;
     cout << "Vector b = " << endl << b << endl;
-    c = a + 5;
-    cout << "Vector c = a + 5" << endl << c << endl;
-    c = a - 5;
-    cout << "Vector c = a - 5" << endl << c << endl;
-    c = a * 5;
-    cout << "Vector c = a * 5" << endl << c << endl;
+    c = a + 4;
+    cout << "Vector c = a + 4" << endl << c << endl;
+    c = a - 2;
+    cout << "Vector c = a - 2" << endl << c << endl;
+    c = a * 7;
+    cout << "Vector c = a * 7" << endl << c << endl;
     c = a + b;
     cout << "Vector c = a + b" << endl << c << endl;
     c = a - b;
@@ -49,4 +53,3 @@ void main()
     s = a * b;
     cout << "s = a * b" << endl << s << endl;
 }
-//---------------------------------------------------------------------------
